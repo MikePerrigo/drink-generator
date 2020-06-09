@@ -1,14 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import FetchDrink from './Components/FetchDrink';
-import DrinkGrid from './Components/DrinkCards';
+import Grid from '@material-ui/core/Grid';
 
 function App() {
   return (
-    <div className="App">
-      <DrinkGrid />
-    </div>
+    <Grid container spacing={8} style={{textAlign: "center"}}>
+      <Grid item xs={12}>
+        <h1>Choose Your Sprint Drink!</h1>
+      </Grid>
+      <Grid item xs={6}>
+        <FetchDrink />
+      </Grid>
+      <Grid item xs={6}>
+        <FetchDrink />
+      </Grid>
+
+    </Grid>
   );
 }
 

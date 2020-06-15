@@ -53,6 +53,8 @@ export default class FetchDrink extends React.Component {
         console.log(this.state.ingredients);
     }
 
+
+
     // Render Drink Name and Image if the page is no longer loading
     render() {
         return (
@@ -71,9 +73,9 @@ export default class FetchDrink extends React.Component {
                             </div>
                             <img src={this.state.drink_image} />
                             <div>
-                                <p>
-                                    {this.state.ingredients}
-                                </p>
+                                <ul>
+                                    {this.state.ingredients.map((item,i) => <li key={i}>{item}</li>)}
+                                </ul>
                             </div>
                         </div>
                         )}

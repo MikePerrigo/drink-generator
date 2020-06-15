@@ -8,6 +8,7 @@ export default class FetchDrink extends React.Component {
         drink_id: null,
         drink_image: null,
         drink: null,
+        ingredients: [],
     };
 
     //Get the drink via the api
@@ -18,11 +19,38 @@ export default class FetchDrink extends React.Component {
         this.setState({drink_name: data.drinks[0].strDrink, 
             loading: false,
             drink_image: data.drinks[0].strDrinkThumb,
-            drink: data
+            drink: data,
         });
-        
-
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient1])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient2])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient3])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient4])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient5])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient6])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient7])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient8])
+        });
+        this.setState({
+            ingredients: this.state.ingredients.concat([data.drinks[0].strIngredient9])
+        });
+                
         console.log(this.state.drink);
+        console.log(this.state.ingredients);
     }
 
     // Render Drink Name and Image if the page is no longer loading
@@ -37,11 +65,16 @@ export default class FetchDrink extends React.Component {
                     </div> 
                     ) : (
                         <div>
-                            <div>{this.state.drink_name}</div>
+                            <div><h2>{this.state.drink_name}</h2></div>
                             <div>
                                 <button onClick={() => {this.chooseDrink()}}>Choose a new drink!</button>
                             </div>
                             <img src={this.state.drink_image} />
+                            <div>
+                                <p>
+                                    {this.state.ingredients}
+                                </p>
+                            </div>
                         </div>
                         )}
             </div>
